@@ -12,19 +12,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
     - name: Inject slug/short variables
       uses: rlespinasse/github-slug-action@v3.x
-
-
-    - name: Testing Content
-      run: |
-        echo '${GITHUB_REF_SLUG}'
 
     - name: Checkout
       uses: actions/checkout@v2.4.0
       with:
         repository: 'macnev2013/github-actions-docker-sample'
-        ref: '${GITHUB_REF_SLUG}'
+        ref:  ${{ github.ref }}
 
     - name: Testing Content
       run: |
